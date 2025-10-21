@@ -85,4 +85,13 @@ docker build -t employee-management-system .
 docker run -p 8080:8080 --env SPRING_DATASOURCE_URL=jdbc:h2:mem:employee_db --env SPRING_PROFILES_ACTIVE=h2 employee-management-system
 ```
 
+### Environment file for docker-compose
+
+The `docker-compose.yml` reads `.env` for DB credentials. Copy the example and edit as needed:
+
+```cmd
+copy .env.example .env
+rem Edit .env to set MYSQL_ROOT_PASSWORD
+```
+
 
