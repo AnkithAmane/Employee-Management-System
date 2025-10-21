@@ -63,3 +63,26 @@ java -jar target\employee-management-system-0.0.1-SNAPSHOT.jar --spring.profiles
 ```
 
 
+## Run with Docker
+
+Prerequisites: Docker and Docker Compose installed.
+
+Build and run the application together with MySQL:
+
+```cmd
+docker-compose up --build
+```
+
+The compose file exposes:
+- App: http://localhost:8080
+- MySQL: 3306 (root password: example)
+
+To run the app container only (uses the packaged jar):
+
+```cmd
+mvn -DskipTests package
+docker build -t employee-management-system .
+docker run -p 8080:8080 --env SPRING_DATASOURCE_URL=jdbc:h2:mem:employee_db --env SPRING_PROFILES_ACTIVE=h2 employee-management-system
+```
+
+
